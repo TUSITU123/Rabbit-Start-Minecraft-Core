@@ -865,7 +865,7 @@ namespace System
         public UnifiedPass GetUnifiedPass(string ID, string username, string password)
         {
             UnifiedPass pass = new UnifiedPass();
-            string str = this.web.Post("https://auth2.nide8.com:233/" + ID + "/authserver/authenticate", "{\"agent\": {\"name\": \"Sika Deer Launcher\",\"version\": 2.23},\"username\": \"" + username + "\",\"password\": \"" + password + "\",\"clientToken\": \"htty\",\"requestUser\": true}");
+            string str = this.web.Post("https://auth.mc-user.com:233/" + ID + "/authserver/authenticate", "{\"agent\": {\"name\": \"Sika Deer Launcher\",\"version\": 2.23},\"username\": \"" + username + "\",\"password\": \"" + password + "\",\"clientToken\": \"htty\",\"requestUser\": true}");
             if (str == null)
             {
                 throw new LauncherException("请求失败");
@@ -892,7 +892,7 @@ namespace System
         {
             List<UnifiedPassesTheSkin> list = new List<UnifiedPassesTheSkin>();
             UnifiedPass pass = this.GetUnifiedPass(ID, username, password);
-            string str = this.web.getHtml("https://auth2.nide8.com:233/" + ID + "/sessionserver/session/minecraft/profile/" + pass.id);
+            string str = this.web.getHtml("https://auth.mc-user.com:233/" + ID + "/sessionserver/session/minecraft/profile/" + pass.id);
             if (str == null)
             {
                 throw new LauncherException("请求失败");
